@@ -1,0 +1,9 @@
+k8s_yaml([
+'ingress.yaml', 
+'nginx-configmap.yaml', 
+'nginx_deployment.yaml', 
+'nginx_service.yaml', 
+'php_deployment.yaml', 
+'php_service.yaml', 
+'storage.yaml'
+])
