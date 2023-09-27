@@ -36,7 +36,3 @@ spec:
               mountPath: /var/www/html
             - name: config
               mountPath: /etc/nginx/conf.d
-          lifecycle:
-            postStart:
-              exec:
-                command: [ "/bin/sh", "-c", "chown -R www-data:www-data /var/www/html" ]

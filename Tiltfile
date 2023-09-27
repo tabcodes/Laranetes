@@ -5,11 +5,14 @@ docker_build('laravel-php', '.', live_update=[sync_src])
 k8s_yaml([
 'storage.yaml',
 'ingress.yaml',  
-'php_deployment.yaml', 
-'php_service.yaml', 
+'php-deployment.yaml', 
+'php-service.yaml', 
 'nginx-configmap.yaml', 
-'nginx_deployment.yaml', 
-'nginx_service.yaml',
+'nginx-deployment.yaml', 
+'nginx-service.yaml',
+'mysql-service.yaml',
+'mysql-pvc.yaml',
+'mysql-deployment.yaml'
 ])
 
 
