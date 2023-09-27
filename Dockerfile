@@ -23,4 +23,5 @@ RUN npm set progress=false && \
     rm -rf node_modules
 
 FROM php_base
+WORKDIR /var/www/html
 COPY --from=node_dependencies --chown=docker:docker /var/www/html /var/www/html
