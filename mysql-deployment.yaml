@@ -1,38 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-mysql
+  name: mysql
   labels:
-    app: myapp
+    app: mysql
     tier: mysql
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: mysql
       tier: mysql
   template:
     metadata:
       labels:
-        app: myapp
+        app: mysql
         tier: mysql
     spec:
       containers:
       - image: mysql:8
         name: mysql
         env:
-        - name: MYSQL_RANDOM_ROOT_PASSWORD
-          value: "true"
         - name: MYSQL_USER
           value: laravel
         - name: MYSQL_DATABASE
           value: laravel
         - name: MYSQL_PASSWORD
-          # read the password from the ConfigMap
-          # so we are sure laravel and MySQL use the same
-          # valueFrom:
-          #   configMapKeyRef:
-          #     name: myapp-laravel
-          #     key: DB_PASSWORD
+          value: laravel
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: mysql-pass
+                key: password
         ports:
         - containerPort: 3306
           name: mysql
