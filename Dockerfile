@@ -1,7 +1,10 @@
 ARG PHP_EXTENSIONS="apcu bcmath pdo_mysql redis imagick gd"
 FROM php:8.2.1-fpm AS php_base
 
-RUN apt-get update && apt-get install -y git unzip
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    && docker-php-ext-install mysqli pdo_mysql
 
 WORKDIR /code
 COPY --chown=docker:docker ./application /code
