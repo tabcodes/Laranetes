@@ -27,7 +27,6 @@ spec:
           lifecycle:
             postStart:
               exec:
-                # command: [ "/bin/sh", "-c", "cp -r /code/. /var/www/html " ]
                 command:
                   - "/bin/sh"
                   - "-c"
@@ -35,7 +34,6 @@ spec:
                     if [ -d /code ]; then
                     cp -r /code/. /var/www/html;
                     chown -R www-data:www-data /var/www/html;
-                    rm -rf /code;
                     fi; 
       volumes:
         - name: code

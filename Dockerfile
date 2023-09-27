@@ -7,7 +7,7 @@ WORKDIR /code
 COPY --chown=docker:docker ./application /code
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --quiet  --optimize-autoloader --no-dev
+RUN composer install --quiet --optimize-autoloader --no-dev
 
 FROM node:16 as node_dependencies
 WORKDIR /var/www/html
