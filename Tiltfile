@@ -10,6 +10,9 @@ k8s_yaml([
 'nginx-configmap.yaml', 
 'nginx-deployment.yaml', 
 'nginx-service.yaml',
+'mysql-service.yaml',
+'mysql-pvc.yaml',
+'mysql-deployment.yaml'
 ])
 
 
