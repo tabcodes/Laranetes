@@ -19,7 +19,23 @@ spec:
       enableServiceLinks: false
       containers:
         - name: php
-          image: laravel-php
+          image: laranetes
+          env:
+          - name: DB_USER
+            valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DB_USER
+          - name: DB_NAME
+            valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DB_NAME
+          - name: DB_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DB_PASSWORD
           imagePullPolicy: Never
           volumeMounts:
             - name: code

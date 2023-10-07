@@ -21,16 +21,25 @@ spec:
         name: mysql
         env:
         - name: MYSQL_USER
-          value: laravel
+          valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: DB_USER
         - name: MYSQL_DATABASE
-          value: laravel
+          valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: DB_NAME
         - name: MYSQL_PASSWORD
-          value: laravel
+          valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: DB_PASSWORD
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
               secretKeyRef:
-                name: mysql-pass
-                key: password
+                name: mysql-secret
+                key: DB_PASSWORD
         ports:
         - containerPort: 3306
           name: mysql
