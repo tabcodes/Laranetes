@@ -1,6 +1,12 @@
-sync_src = sync('./application', '/var/www/html')
 
-docker_build('laravel-php', '.', live_update=[sync_src])
+docker_build(
+    'laranetes', 
+    context='.', 
+    dockerfile='./Dockerfile',
+    live_update=[
+        sync(local_path='./application', remote_path='/var/www/html')
+    ])
+
 
 k8s_yaml([
 'storage.yaml',
