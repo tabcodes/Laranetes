@@ -12,8 +12,10 @@ k8s_yaml([
 'nginx-service.yaml',
 'mysql-service.yaml',
 'mysql-pvc.yaml',
+'mysql-pv.yaml',
 'mysql-deployment.yaml',
-'cluster-store.yaml',
+'secret-store.yaml',
+'ex-secrets.yaml'
 ])
 
 
